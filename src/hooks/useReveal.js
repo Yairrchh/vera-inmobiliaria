@@ -15,6 +15,16 @@ export function useReveal(threshold = 0.2) {
       return undefined
     }
 
+    // Elements already on screen when the page (or a client-side route
+    // transition) mounts should reveal right away rather than wait on an
+    // observer callback that has nothing to "scroll into" — there's no
+    // guarantee it fires promptly around a route change.
+    const rect = node.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true)
+      return undefined
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,14 +36,8 @@ export function useReveal(threshold = 0.2) {
     )
     observer.observe(node)
 
-    // Safety net: some environments (throttled/background tabs, rare
-    // browser quirks) delay or never fire the observer. Content must
-    // never stay permanently hidden because of it.
-    const fallback = setTimeout(() => setVisible(true), 1500)
-
     return () => {
       observer.disconnect()
-      clearTimeout(fallback)
     }
   }, [threshold])
 

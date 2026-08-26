@@ -42,8 +42,7 @@ function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-sand pt-6 text-xs text-stone sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Vera Inmobiliaria. Sitio demo de portafolio.</p>
-          <p>Diseño y desarrollo — proyecto de portafolio web.</p>
+          <p>© {new Date().getFullYear()} Vera Inmobiliaria. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

@@ -46,18 +46,24 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-transparent" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 pt-40 lg:px-10 lg:pb-24">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+          <p className="animate-rise text-sm font-medium uppercase tracking-[0.2em] text-white/70">
             Buenos Aires · Venta y alquiler
           </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-5xl font-semibold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+          <h1
+            className="animate-rise mt-4 max-w-3xl font-serif text-5xl font-semibold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
+            style={{ animationDelay: '90ms' }}
+          >
             Encontrá tu lugar
           </h1>
-          <p className="mt-5 max-w-lg text-base text-white/80 sm:text-lg">
+          <p
+            className="animate-rise mt-5 max-w-lg text-base text-white/80 sm:text-lg"
+            style={{ animationDelay: '180ms' }}
+          >
             Propiedades verificadas y asesores dedicados, de la primera visita hasta la
             entrega de llaves.
           </p>
 
-          <div className="mt-8">
+          <div className="animate-rise mt-8" style={{ animationDelay: '270ms' }}>
             <SearchBar />
           </div>
         </div>
