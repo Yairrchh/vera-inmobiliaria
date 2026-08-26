@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import PropertyCard from '../components/PropertyCard'
+import Reveal from '../components/Reveal'
 import { properties, barrios } from '../data/properties'
 
 const OPERATIONS = [
@@ -37,12 +38,12 @@ function Listings() {
 
   return (
     <div className="pt-28 sm:pt-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <Reveal className="mx-auto max-w-7xl px-6 lg:px-10">
         <p className="text-xs font-semibold uppercase tracking-wide text-azure">Propiedades</p>
         <h1 className="mt-2 font-serif text-4xl text-ink">
           {results.length} {results.length === 1 ? 'propiedad encontrada' : 'propiedades encontradas'}
         </h1>
-      </div>
+      </Reveal>
 
       {/* Filter bar */}
       <div className="sticky top-[64px] z-20 mt-8 border-y border-sand bg-paper/95 py-4 backdrop-blur">

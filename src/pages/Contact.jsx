@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Reveal from '../components/Reveal'
 
 const OFFICE = {
   address: 'Av. Cabildo 1842, Belgrano',
@@ -22,7 +23,7 @@ function Contact() {
   return (
     <div className="pt-28 sm:pt-32">
       <div className="mx-auto grid max-w-6xl gap-14 px-6 pb-24 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
-        <div>
+        <Reveal>
           <p className="text-xs font-semibold uppercase tracking-wide text-azure">Contacto</p>
           <h1 className="mt-2 font-serif text-4xl text-ink sm:text-5xl">Hablemos de tu próximo lugar</h1>
           <p className="mt-5 max-w-md text-ink/80">
@@ -100,9 +101,9 @@ function Contact() {
               </button>
             </form>
           )}
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={150}>
           <div className="overflow-hidden rounded-xl border border-sand">
             <iframe title="Oficina de Vera Inmobiliaria" src={mapSrc} className="h-64 w-full" loading="lazy" />
           </div>
@@ -117,7 +118,7 @@ function Contact() {
             </p>
             <p>+54 11 4555-0100</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   )

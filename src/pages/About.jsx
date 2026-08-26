@@ -1,5 +1,6 @@
 import { agents } from '../data/properties'
 import Underline from '../components/Underline'
+import Reveal from '../components/Reveal'
 import { useReveal } from '../hooks/useReveal'
 
 const MILESTONES = [
@@ -36,39 +37,43 @@ function About() {
             visible={headingVisible}
           />
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
+        <Reveal as="p" delay={150} className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
           Vera nació en 2014 de una idea simple: una inmobiliaria no necesita miles de
           propiedades para ser buena, necesita conocer bien cada una. Seguimos siendo un
           equipo chico a propósito — así cada cliente tiene un solo asesor, de la primera
           visita a la escritura.
-        </p>
+        </Reveal>
       </section>
 
       {/* Timeline */}
       <section className="mx-auto mt-20 max-w-4xl border-t border-sand px-6 py-16 lg:px-10">
-        <h2 className="font-serif text-2xl text-ink">Cómo llegamos hasta acá</h2>
+        <Reveal as="h2" className="font-serif text-2xl text-ink">
+          Cómo llegamos hasta acá
+        </Reveal>
         <ol className="mt-8 space-y-8">
-          {MILESTONES.map((m) => (
-            <li key={m.year} className="flex gap-6">
+          {MILESTONES.map((m, i) => (
+            <Reveal as="li" key={m.year} delay={i * 90} className="flex gap-6">
               <span className="w-14 shrink-0 font-serif text-xl text-azure">{m.year}</span>
               <p className="text-ink/80">{m.text}</p>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </section>
 
       {/* Team */}
       <section className="mx-auto max-w-6xl border-t border-sand px-6 py-16 lg:px-10">
-        <h2 className="font-serif text-2xl text-ink">El equipo</h2>
+        <Reveal as="h2" className="font-serif text-2xl text-ink">
+          El equipo
+        </Reveal>
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((person) => (
-            <div key={person.name}>
+          {team.map((person, i) => (
+            <Reveal key={person.name} delay={i * 90}>
               <div className="aspect-square overflow-hidden rounded-xl bg-sand">
                 <img src={person.photo} alt={person.name} className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-medium text-ink">{person.name}</p>
               <p className="text-sm text-stone">{person.role}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

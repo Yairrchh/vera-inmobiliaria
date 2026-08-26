@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
 import PropertyCard from '../components/PropertyCard'
 import Underline from '../components/Underline'
+import Reveal from '../components/Reveal'
 import { properties, barrios, agents } from '../data/properties'
 import { useReveal } from '../hooks/useReveal'
 
@@ -64,7 +65,7 @@ function Home() {
 
       {/* Barrios */}
       <section className="border-b border-sand bg-paper py-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <Reveal className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex items-center gap-3 overflow-x-auto pb-1">
             <span className="shrink-0 text-xs font-semibold uppercase tracking-wide text-stone">
               Barrios
@@ -79,12 +80,12 @@ function Home() {
               </Link>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Featured listings */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-azure">
               Selección de la semana
@@ -99,7 +100,7 @@ function Home() {
           >
             Ver todas las propiedades →
           </Link>
-        </div>
+        </Reveal>
 
         <div className="mt-10 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((property, i) => (
@@ -148,12 +149,14 @@ function Home() {
 
       {/* Team teaser */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <p className="text-xs font-semibold uppercase tracking-wide text-azure">Tu asesor</p>
-        <h2 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">Gente, no un catálogo</h2>
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-wide text-azure">Tu asesor</p>
+          <h2 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">Gente, no un catálogo</h2>
+        </Reveal>
 
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
-          {Object.values(agents).map((agent) => (
-            <div key={agent.email} className="flex items-center gap-4">
+          {Object.values(agents).map((agent, i) => (
+            <Reveal key={agent.email} delay={i * 90} className="flex items-center gap-4">
               <img
                 src={agent.photo}
                 alt={agent.name}
@@ -163,14 +166,14 @@ function Home() {
                 <p className="font-medium text-ink">{agent.name}</p>
                 <p className="text-sm text-stone">{agent.role}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-ink py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+        <Reveal className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-10">
           <h2 className="max-w-xl font-serif text-3xl text-white sm:text-4xl">
             ¿Pensás vender o alquilar tu propiedad?
           </h2>
@@ -180,7 +183,7 @@ function Home() {
           >
             Hablar con un asesor
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   )
